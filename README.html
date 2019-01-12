@@ -1,0 +1,309 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  	<meta http-equiv="Content-Language" content="en">
+	<link rel="Shortcut Icon" href="/nidp/images/edu/styles/images/faviconEdu.png?v=2.0.1.1"/>
+
+    <link rel="stylesheet" href="/nidp/images/edu/css/bootstrap-rtl-min.css?v=2.0.1.1" media="screen">
+    <link rel="stylesheet" href="/nidp/images/edu/css/style-min.css?v=2.0.1.1" media="screen">
+	<link href="https://fonts.googleapis.com/css?family=Assistant:200,300,400,600,700,800" rel="stylesheet">
+	<script> /*Verify jquery loaded...*/
+		function defer(method) {
+			if (window.jQuery) { 
+				method();
+			} else {
+				setTimeout(function() { defer(method) }, 50);
+			}
+		}
+	</script>
+	<!-- Google Tag Manager -->
+	<script>
+		(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-NTZ6H6K');
+	</script>
+	<!-- End Google Tag Manager -->
+
+	<style>#blocker {position: absolute;top:0;left: 0;right: 0;bottom: 0;cursor: pointer;z-index:999 !important} .unselected-login{ }</style>
+	<title>כניסה למערכת</title>
+</head>
+<body class="signin-page">
+	<header class="container">
+    <img class="pull-left hidden-xs" src="/nidp/images/edu/assets/office-service-logo.png" title="משרד החינוך לשירותך" aria-hidden="true">
+    <img class="pull-right hidden-xs" src="/nidp/images/edu/assets/edu-office-logo.png" title="מדינת ישראל, משרד החינוך" aria-hidden="true">
+    <img class="pull-left visible-xs-block" src="/nidp/images/edu/assets/office-service-logo-mobile.png" title="משרד החינוך לשירותך" aria-hidden="true">
+    <img class="pull-right visible-xs-block" src="/nidp/images/edu/assets/edu-office-logo-mobile.png" title="מדינת ישראל, משרד החינוך" aria-hidden="true">
+    <h1 class="main-title">ברוכים הבאים למשרד החינוך</h1>
+</header>
+    <section class="main container">
+		<!-- MAIN -->
+		<div class="login-wrap col-md-9 col-sm-10 col-xs-12 pull-right">
+			<div id="alerts"></div>
+            <div class="login-tabs hidden-lg hidden-md hidden-sm">
+                <button class="pass-tab right-tab active"  data-login-tab="user-pass-login"><span class="tab-label">קוד משתמש וסיסמה</span><span class="tab-icon pass-tab-icon"></span></button>
+                <button class="sms-tab left-tab" data-login-tab="sms-login"><span class="tab-label">SMS</span><span class="tab-icon sms-tab-icon"></span></button>
+            </div>
+            <!--User Code and Password login-->
+            <div class="user-pass-login login-box pull-right focused-box">
+                <h2 class="user-pass-title">כניסה באמצעות<br class="visible-xs"/> קוד משתמש וסיסמה</h2>
+                <form name="IDPLogin" id="IDPLogin" enctype="application/x-www-form-urlencoded" method="POST" action="https://lgn.edu.gov.il/nidp/saml2/sso?sid=0&sid=0" autocomplete="off">
+					<input type="hidden" name="option" value="credential" />
+                    <fieldset>
+						<input type="text" class="" style="display:none" value="" name="HIN_USERID_HID" />
+						<input type="text" placeholder="קוד משתמש" name="HIN_USERID" id="HIN_USERID" title="קוד משתמש" value="" maxlength="7" tabindex="1" />
+                        <span class="pass-wrap">
+							<input type="text" name="not-an-code" value="" style="display:none" />
+							<input type="password" name="Ecom_Password_Hid" value="" style="display:none" />
+							<input type="password" class="capslock-msg prevent-heb" title="סיסמה" placeholder="סיסמה" maxlength="16" name="Ecom_Password" id="Ecom_Password" tabindex="2"><span id="show_pass1"></span>
+                        </span>
+						                                              
+						<button type="button" class="submit user-pass-submit" title="כניסה" name="loginButton2" id="loginButton2" tabindex="3" onclick="return doSubmit()">כניסה</button>
+						     
+                    </fieldset>
+                </form>
+            </div>
+            <img class="or-icon" src="/nidp/images/edu/assets/or.png" aria-hidden="true">
+            <!--SMS login-->
+            <div class="sms-login login-box pull-left hidden-xs unselected-login">
+				<div id="blocker" class="hidden-xs" active="EduCombinedAuthUidPwd" inactive="EduCombinedAuthSms"></div>
+                <h2 class="sms-title">כניסה באמצעות SMS</h2>
+                <p>כניסה באמצעות SMS זמינה למשתמשים להם קיים מספר טלפון נייד במערכות המשרד</p>
+                <a class="instructions-pop" href="#" title="הנחיות לעדכון טלפון נייד">הנחיות לעדכון טלפון נייד</a>
+                <div>
+                    <fieldset>
+						<input type="text" class="" style="display:none" value="" name="HIN_ID_HID">
+						<input type="text" placeholder="מספר זהות" title="מספר תעודת זהות" class="digits-only" value="" maxlength="9">
+						<button type="button" class="submit sms-submit" title="שלחו לי SMS">שלחו לי SMS</button>
+                    </fieldset>
+                </div>
+            </div>
+        </div> <!-- End Login Wrap-->
+		    <!--Login Help Mobile-->
+    <div class="col-md-9 col-sm-12 col-xs-12 pull-right login-help-wrap visible-xs">
+        <a href="https://apps2.education.gov.il/edulogin/SelfReset.aspx" target="_blank" title="לסיוע בהתחברות לחצו כאן" class="login-help"><span class="icon flag-icon" aria-hidden="true"></span>
+            <span class="first-row helper-row">נתקלת בבעיה?</span>
+            <span class="second-row helper-row">אין לך <span class="mid-font">קוד</span><span class="smaller-font"> משתמש וסיסמה</span>?</span>
+            <span class="third-row helper-row">שכחת? נחסמת?</span>
+            <span class="icon forward-icon" aria-hidden="true"></span></a>
+    </div>
+
+    <!--Start Sidebar-->
+    <div class="sidebar col-md-3 col-sm-2 col-xs-12 pull-left">
+        <!--<div class="support-call col-md-12 col-sm-12 col-xs-4">
+            <span class="icon" aria-hidden="true"></span>
+            <h3>מוקד תמיכה</h3>
+            <a href="tel:039298888" title="חיוג למוקד התמיכה">6552*</a>
+        </div>-->
+        <div class="support-guides col-md-12 col-sm-12 col-xs-8">
+            <a href="https://www.youtube.com/watch?v=7rArO9nJ2Q8" target="_blank" class="video-link pull-right col-xs-6" title="סרטון הדרכה"><span class="icon movie-icon" aria-hidden="true"></span>סרטון<br/> הדרכה</a>
+            <a href="http://meyda.education.gov.il/files/UserGuide.pdf" target="_blank" class="user-guide-link pull-left col-xs-6" title="מדריך למשתמש"><span class="icon pdf-icon" aria-hidden="true"></span>מדריך למשתמש</a>
+        </div>
+    </div><!--End Sidebar-->
+
+    <!--Login Help Desktop-->
+    <div class="col-md-9 col-sm-12 col-xs-12 pull-right login-help-wrap hidden-xs">
+        <a href="https://apps2.education.gov.il/edulogin/SelfReset.aspx" target="_blank" title="לסיוע בהתחברות לחצו כאן" class="login-help"><span class="icon flag-icon" aria-hidden="true"></span>נתקלת בבעיה? אין לך <span class="smaller-font">קוד משתמש וסיסמה</span>? שכחת? נחסמת?<span class="icon forward-icon" aria-hidden="true"></span></a>
+    </div>
+	</section>	
+	
+<!--Mobile guidence Popup-->
+<style>ul.ins{padding-right:10px;font-size:17px;} ul.ins li {margin-right:20px;}</style>
+	<div id="instructions" class="notice-popup modal-dismissible modal" style="display:none" role="modal">
+		<div class="popup-wrap">
+			<a href="#" class="close" data-dismiss="modal" aria-label="close">&times;</a>
+			<h2 style='text-align:center'>הנחיות לעדכון טלפון נייד</h2>
+			<ul class='ins'><b>עובד הוראה</b>
+				<li>פניה למחוז, בעלות, או מזכירות בית הספר </li>
+				<li>פניה למוקד סיסמאות: 6552*</li>
+			</ul>
+			<ul class='ins'><b>מזכירות</b>
+				<li>עדכון באמצעות מערכת ניהול סיסמאות</li>
+				<li>מנהל בית הספר יעדכן במטה איסוף משתמשים</li>
+			</ul>
+			<ul class='ins'><b>תלמידים\ות</b>
+				<li>עדכון באמצעות החשבון שלי</li>
+				<li>פניה למזכירות בית הספר</li>
+				<li>פניה למוקד סיסמאות: 6552*</li>
+			</ul>
+			<ul class='ins'><b>הורים</b>
+				<li>פניה למזכירות בית הספר</li>
+			</ul>
+			<ul class='ins'><b>משתמשים שונים במערכת החינוך</b>
+				<li>עדכון הטלפון הנייד באמצעות הממונה הישיר</li>
+				<li>פניה למוקד סיסמאות: 6552*</li>
+			</ul>
+			<button class="def-login-button" data-dismiss="modal" aria-label="close">סגירה</button>
+		</div>
+	</div>
+<!--End Mobile Popup-->	
+
+<!--Start bottom slider-->
+<div class="carousel-wrapper container">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			<li data-target="#myCarousel" data-slide-to="1"></li>
+			<li data-target="#myCarousel" data-slide-to="2"></li>
+			<li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
+
+		<div class="carousel-inner">
+			<div class="item active" style="background-image: url('/nidp/images/edu/assets/banner/20170913_1.jpg');">
+				<a href="http://poh.education.gov.il/Pages/HomePage.aspx" target="_blank">
+				<p class="slide-text-general hidden-xs">מרחב מנהלי בפורטל עו"ה -
+					<span class="smaller-font">עקבו אחר תהליך קבלת השכר, בהתראות וצפו במידע אישי</span>
+				</p>
+				<p class="slide-text-mobile visible-xs">מרחב מנהלי בפורטל עו"ה<br/>
+					<span class="smaller-font">עקבו אחר תהליך קבלת השכר, טפלו בהתראות וצפו במידע אישי</span>
+				</p>
+				</a>
+			</div>
+			<div class="item" style="background-image: url('/nidp/images/edu/assets/banner/20170913_2.jpg');">
+				<a href="http://poh.education.gov.il/Pages/HomePage.aspx" target="_blank">
+				<p class="slide-text-general hidden-xs">מרחב פדגוגי בפורטל עו"ה -
+					<span class="smaller-font">חומרי הוראה איכותיים, כלים דיגיטליים ומערכי שיעור</span>
+				</p>
+				<p class="slide-text-mobile visible-xs">מרחב פדגוגי בפורטל עו"ה<br/>
+					<span class="smaller-font">חומרי הוראה איכותיים, כלים דיגיטליים ומערכי שיעור</span>
+				</p>
+				</a>
+			</div>
+			<div class="item" style="background-image: url('/nidp/images/edu/assets/banner/20170913_3.jpg');">
+				<a href="http://edu.gov.il/sites/Shaar" target="_blank">
+				<p class="slide-text-general hidden-xs">פורטל שער -
+					<span class="smaller-font">עקבו אחר שכר העובדים שלכם וצפו בנתוני בית הספר</span>
+				</p>
+				<p class="slide-text-mobile visible-xs">פורטל שער<br/>
+					<span class="smaller-font">עקבו אחר שכר העובדים שלכם וצפו בנתוני בית הספר</span>
+				</p>
+				</a>
+			</div>
+			<div class="item" style="background-image: url('/nidp/images/edu/assets/banner/20170913_4.jpg');">
+				<a href="http://edu.gov.il/special/students/Pages/Home.aspx" target="_blank">
+				<p class="slide-text-general hidden-xs">פורטל תלמידים -
+					<span class="smaller-font">כל מה שהתלמידים שלכם רוצים לדעת!</span>
+				</p>
+				<p class="slide-text-mobile visible-xs">פורטל תלמידים<br/>
+					<span class="smaller-font">כל מה שהתלמידים שלכם רוצים לדעת!</span>
+				</p>
+				</a>
+			</div>
+		</div>
+		
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="next">
+            <span class="slide-arrow left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="slide-arrow right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div> <!-- end Slider-->
+<!--Start Footer Section-->
+<footer>
+    <p>להזכירך, פרטי ההזדהות הינם אישיים וחסויים<br class="visible-xs"/> וחל איסור על העברתם</p>
+<!--    <div class="footer-links container-fluid">
+        <a href="#" title="תנאי שימוש">תנאי שימוש</a>
+        <a href="#" title="Terms Of use">Terms Of use</a>
+        <a href="#" title="אקום">אקו"ם</a>
+        <a href="http://edu.gov.il/owlHeb/Pages/Accessibility.aspx" title="אתר נגיש לרמה AA">אתר נגיש לרמה AA</a>
+    </div>
+-->	
+</footer><!--End Footer Section-->
+<script src="/nidp/images/edu/js/jquery-min.js"></script>
+<script src="/nidp/images/edu/js/bootstrap.min.js?v=2.0.1.1"></script>
+<script src="/nidp/images/edu/js/main.min.js?v=2.0.1.1"></script>
+<script src="/nidp/images/edu/js/custom.min.js?v=2.0.1.1"></script>
+
+    <script language="JavaScript">
+        $(function () {
+            $('#IDPLogin').keydown(function (e) { var code = e.keyCode ? e.keyCode : e.which; if (code == 13) $('#loginButton2').click(); });
+			
+			$('#blocker,.sms-tab').click(function(e){
+				var b = $('#blocker');
+				e.preventDefault();
+				if (window.location.href.indexOf(b.attr('active'))>0)
+					window.location.href = window.location.href.replace(b.attr('active'),b.attr('inactive'));
+				else //after error contract id not return on url address
+					window.location.href = window.location.href + '&id=' +b.attr('inactive');
+			});
+			$('#HIN_USERID').focus();
+        });
+
+		function doSubmit() {
+			//disable double click
+			$('#loginButton2').attr('disabled','disabled');
+			if (IsValid()) 
+				$('#IDPLogin').submit(); 
+			else {
+				$('#loginButton2').attr('disabled', false);
+				return false;
+			}
+		}
+
+		function IsValid() {
+			var msg = [];
+			var id = $('#HIN_USERID');
+			if ($.trim(id.val()).length == 0 ||
+				$.trim($('#Ecom_Password').val()).length == 0) {
+				msg.push({msg: 'חובה להזין ערך בכל השדות', elem: id});
+				showAlerts(msg);
+				return false;
+			}
+			else {
+				//write event to google analytics
+				ga('send', 'event', 'link', 'click', 'uid_pwd', { nonInteraction: true });
+				return true;
+			}
+		}
+</script>
+
+	<script src="https://www.google.com/recaptcha/api.js?hl=he"></script>
+	<script>console.log("Err: null HebError: ");</script>
+	
+	
+	<!-- Google Tag Manager (noscript) -->
+	<noscript>
+		<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTZ6H6K" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+	</noscript>
+	<!-- End Google Tag Manager (noscript) -->
+
+	<script>
+	  // (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  // (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  // m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  // })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  // ga('create', 'UA-63096915-2', 'auto');
+	  // ga('send', 'pageview');
+	</script>
+
+    <script src="/nidp/images/edu/js/jquery-1.9.1.min.js"></script>
+	<script src="/nidp/images/edu/js/bootstrap.min.js?v=2.0.1.1"></script>
+    <script src="/nidp/images/edu/js/main.min.js?v=2.0.1.1"></script>
+	<script src="/nidp/images/edu/js/custom.min.js?v=2.0.1.1"></script>
+</body>
+</html>	
